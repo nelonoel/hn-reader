@@ -15,7 +15,9 @@ export default class Story extends Component {
   componentWillMount() {
     const { id } = this.props
     getItem(id).then(story => {
-      this.setState(story)
+      if ("title" in story) {
+        this.setState(story)
+      }
     })
   }
 

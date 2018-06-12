@@ -10,10 +10,14 @@ export function getItem(id) {
   return fetch(apiURL)
     .then(res => res.json())
     .then(story => {
-      return {
-        title: story.title,
-        author: story.by,
-        url: "url" in story ? story.url : storyURL(story.id)
+      if ("title" in story) {
+        return {
+          title: story.title,
+          author: story.by,
+          url: "url" in story ? story.url : storyURL(story.id)
+        }
       }
+
+      return null
     })
 }
