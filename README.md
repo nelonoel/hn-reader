@@ -10,6 +10,8 @@ git clone git@github.com:nelonoel/hn-reader.git
 cd hn-reader
 npm install
 npm run serve
+...
+INFO: Accepting connections at http://localhost:3000
 ```
 
 ### Todo
