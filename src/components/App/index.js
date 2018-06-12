@@ -49,13 +49,13 @@ export default class App extends Component {
 
     return (
       <ul className="app">
-        <h1>Quick HN Reader</h1>
+				<h1>HN</h1>
         {ids
           .slice(0, page * items)
           .map(id => (
             <Story key={id} id={id} storyLoaded={this.storyLoaded.bind(this)} />
           ))}
-        {endOfList && <h4>End of the List</h4>}
+        {endOfList && <h4>The End</h4>}
         {isLoading ? (
           <h4>Loading..</h4>
         ) : (
