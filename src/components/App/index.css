@@ -1,0 +1,14 @@
+html,
+body {
+  font: 18px monospace;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.4;
+  padding: 0;
+}
+
+.app {
+  margin: auto;
+  max-width: 36em;
+  padding: 0 2em;
+}
