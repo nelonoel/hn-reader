@@ -25,7 +25,7 @@ export default class Story extends Component {
     const { title, author, url } = this.state
     const story = (
       <li className="story">
-        <a href={url} target="blank">
+        <a href={url} target="blank" rel="noopener noreferrer">
           {title}
         </a>{" "}
         <br />
