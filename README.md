@@ -2,7 +2,7 @@
 
 ### Goal
 
-Create an offline-first, blazing fast HackerNews reader
+Create an offline-first, blazing fast HackerNews reader.
 
 ### Run locally
 ```
@@ -11,7 +11,6 @@ cd hn-reader
 npm install
 npm run serve
 ```
-
 
 ### Todo
 
@@ -23,7 +22,7 @@ npm run serve
 
 ### Perf difference
 
-#### Default create-react-app config
+#### Default `create-react-app` config
 ```
 lighthouse score = 82
 first meaningful paint = 3090ms
@@ -37,7 +36,7 @@ first meaningful paint = 2670ms
 bundle size = 40kb
 ```
 
-#### Polyfills removed, move styles to <style> tags
+#### Polyfills removed, move styles to `<style>` tags
 ```
 lighthouse score = 98
 first meaningful paint = 1360ms
