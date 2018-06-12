@@ -16,7 +16,7 @@ export default class Story extends Component {
     const { id, storyLoaded } = this.props
     getItem(id)
       .then(story => {
-        if ("title" in story) {
+        if (story && "title" in story) {
           this.setState(story)
         }
       })
