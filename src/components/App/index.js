@@ -56,7 +56,13 @@ export default class App extends Component {
             <Story key={id} id={id} storyLoaded={this.storyLoaded.bind(this)} />
           ))}
         {endOfList && <h4>End of the List</h4>}
-        {isLoading && <h4>Loading..</h4>}
+        {isLoading ? (
+          <h4>Loading..</h4>
+        ) : (
+          <h4>
+            <a onClick={this.loadMore.bind(this)}>Load more</a>
+          </h4>
+        )}
       </ul>
     )
   }
