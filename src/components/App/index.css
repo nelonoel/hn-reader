@@ -12,3 +12,7 @@ body {
   max-width: 36em;
   padding: 0 2em;
 }
+
+h4 {
+  text-align: center;
+}

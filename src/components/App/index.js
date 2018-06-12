@@ -8,7 +8,9 @@ export default class App extends Component {
     super(props)
     this.state = {
       page: 1,
-      ids: []
+      ids: [],
+      isFetchingIDs: true,
+      loadedStories: 0
     }
   }
 
@@ -16,28 +18,45 @@ export default class App extends Component {
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", () => {
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-          this.setState({
-            page: this.state.page + 1
-          })
+          this.loadMore()
         }
       })
     }
 
     getNewStories().then(ids => {
-      this.setState({ ids })
+      this.setState({ ids, isFetchingIDs: false })
+    })
+  }
+
+  loadMore() {
+    this.setState({
+      page: this.state.page + 1
+    })
+  }
+
+  storyLoaded() {
+    this.setState({
+      loadedStories: this.state.loadedStories + 1
     })
   }
 
   render() {
-    const { ids, page } = this.state
+    const { ids, page, isFetchingIDs, loadedStories } = this.state
     const { items } = this.props
-    const endOfList = items * page > ids.length
+    const mountedItems = items * page
+    const endOfList = !isFetchingIDs && mountedItems > ids.length
+    const isLoading = !endOfList && mountedItems !== loadedStories
 
     return (
       <ul className="app">
         <h1>Quick HN Reader</h1>
-        {ids.slice(0, page * items).map(id => <Story key={id} id={id} />)}
+        {ids
+          .slice(0, page * items)
+          .map(id => (
+            <Story key={id} id={id} storyLoaded={this.storyLoaded.bind(this)} />
+          ))}
         {endOfList && <h4>End of the List</h4>}
+        {isLoading && <h4>Loading..</h4>}
       </ul>
     )
   }

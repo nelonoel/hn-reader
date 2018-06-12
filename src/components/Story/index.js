@@ -13,12 +13,14 @@ export default class Story extends Component {
   }
 
   componentWillMount() {
-    const { id } = this.props
-    getItem(id).then(story => {
-      if ("title" in story) {
-        this.setState(story)
-      }
-    })
+    const { id, storyLoaded } = this.props
+    getItem(id)
+      .then(story => {
+        if ("title" in story) {
+          this.setState(story)
+        }
+      })
+      .then(storyLoaded)
   }
 
   render() {
