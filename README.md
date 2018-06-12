@@ -4,6 +4,15 @@
 
 Create an offline-first, blazing fast HackerNews reader
 
+### Run locally
+```
+git clone git@github.com:nelonoel/hn-reader.git
+cd hn-reader
+npm install
+npm run serve
+```
+
+
 ### Todo
 
 - [x] Fetch new stories

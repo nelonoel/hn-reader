@@ -39,6 +39,7 @@
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.0",
     "resolve": "1.6.0",
+    "serve": "^8.1.4",
     "source-map-explorer": "^1.5.0",
     "style-ext-html-webpack-plugin": "^3.4.7",
     "style-loader": "0.19.0",
@@ -51,9 +52,10 @@
   },
   "devDependencies": {},
   "scripts": {
-    "analyze": "source-map-explorer build/static/js/main.*",
+    "analyze": "node scripts/build.js && source-map-explorer build/static/js/main.*",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "serve": "node scripts/build.js && serve -s build",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
