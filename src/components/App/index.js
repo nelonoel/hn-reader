@@ -16,11 +16,17 @@ export default class App extends Component {
 
   componentWillMount() {
     if (typeof window !== "undefined") {
-      window.addEventListener("scroll", () => {
-        if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-          this.loadMore()
-        }
-      })
+      const isBottom = () =>
+        window.requestAnimationFrame(() => {
+          if (
+            window.innerHeight + window.scrollY >=
+            document.body.offsetHeight
+          ) {
+            this.loadMore()
+          }
+        })
+
+      window.addEventListener("scroll", isBottom)
     }
 
     getNewStories().then(ids => {
@@ -49,7 +55,7 @@ export default class App extends Component {
 
     return (
       <ul className="app">
-				<h1>HN</h1>
+        <h1>HN</h1>
         {ids
           .slice(0, page * items)
           .map(id => (
