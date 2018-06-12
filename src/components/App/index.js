@@ -13,15 +13,14 @@ export default class App extends Component {
   }
 
   componentWillMount() {
-    const _this = this
     if (typeof window !== "undefined") {
-      window.onscroll = () => {
+      window.addEventListener("scroll", () => {
         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-          _this.setState({
-            page: _this.state.page + 1
+          this.setState({
+            page: this.state.page + 1
           })
         }
-      }
+      })
     }
 
     getNewStories().then(ids => {
@@ -32,11 +31,13 @@ export default class App extends Component {
   render() {
     const { ids, page } = this.state
     const { items } = this.props
+    const endOfList = items * page > ids.length
 
     return (
       <ul className="app">
         <h1>Quick HN Reader</h1>
         {ids.slice(0, page * items).map(id => <Story key={id} id={id} />)}
+        {endOfList && <h4>End of the List</h4>}
       </ul>
     )
   }
