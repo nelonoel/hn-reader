@@ -11,21 +11,13 @@ This is an experimental build using plain JS.
 ### Run locally
 
 ```
-git clone -b plain-js git@github.com:nelonoel/hn-reader.git
-cd hn-reader
+git clone -b plain-js git@github.com:nelonoel/hn-reader.git hn-reader-plain
+cd hn-reader-plain
 npm install
 npm run serve
 ...
 INFO: Accepting connections at http://localhost:3000
 ```
-
-### Todo
-
-- [x] Fetch new stories
-- [x] Load each story
-- [x] Infinite scrolling
-- [x] Manage cache for offline access
-- [x] Optimize build and performance
 
 ### Perf difference
 
@@ -60,3 +52,11 @@ lighthouse score = 100
 first meaningful paint = 620ms
 bundle size = 5kb
 ```
+
+### Todo
+
+- [x] Fetch new stories
+- [x] Load each story
+- [x] Infinite scrolling
+- [x] Manage cache for offline access
+- [x] Optimize build and performance
