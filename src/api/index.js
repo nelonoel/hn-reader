@@ -5,7 +5,7 @@ export function getNewStories() {
 
 export function getItem(id) {
   const apiURL = `https://hacker-news.firebaseio.com/v0/item/${id}.json`
-  const storyURL = id => `https://news.ycombinator.com/item?id=${id}.json`
+  const storyURL = id => `https://news.ycombinator.com/item?id=${id}`
 
   return fetch(apiURL)
     .then(res => res.json())
