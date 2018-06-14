@@ -4,6 +4,9 @@
 
 Create an offline-first, blazing fast HackerNews reader.
 
+### View live webpage
+https://open.nelo.is/hn-reader
+
 ### Run locally
 
 ```
